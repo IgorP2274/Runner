@@ -9,7 +9,6 @@ public class PointsDisplay : MonoBehaviour
 
     private int _score = 0;
 
-
     private void Start() =>
         _ScoreDisplay.text = "Очки: " + _score.ToString();
 
