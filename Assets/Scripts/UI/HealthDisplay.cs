@@ -20,6 +20,6 @@ public class HealthDisplay : MonoBehaviour
 
     private void OnHealthChange(int health) 
     {
-        _healthDisplay.text = health.ToString();
+        _healthDisplay.text = "Çהמנמגüו: " + health.ToString();
     }
 }

@@ -25,25 +25,16 @@ public class GameOverScreen : MonoBehaviour
     }
 
 
-    void Start()
-    {
+    void Start() =>
         _ganmeOverGroup.alpha = 0;
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnDied() 
     {
         _ganmeOverGroup.alpha = 1;
         Time.timeScale = 0;
     }
-    private void OnExitButtonClick()
-    {
+    private void OnExitButtonClick() =>
         Application.Quit();
-    }
 
     private void OnRestartButtonClick()
     {

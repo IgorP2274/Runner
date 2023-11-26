@@ -33,14 +33,10 @@ public class ObjectPull : MonoBehaviour
     protected bool TryGetObject(out GameObject result) 
     {
         if (Random.Range(1, 11) == 10)
-        {
             result = _poolHeals.FirstOrDefault(p => p.activeSelf == false);
-            return result != null;
-        }
         else 
-        {
             result = _poolEnemies.FirstOrDefault(p => p.activeSelf == false);
-            return result != null;
-        }
+
+        return result != null;
     }
 }

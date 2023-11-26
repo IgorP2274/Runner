@@ -7,7 +7,7 @@ public class FistAid : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
-            player.ApplayDamage(_heal);
+            player.ApplayHeal(_heal);
 
         Die();
     }

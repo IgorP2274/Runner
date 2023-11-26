@@ -25,9 +25,7 @@ public class Spawner : ObjectPull
             if (TryGetObject(out GameObject enemy)) 
             {
                 _passedTime = 0;
-
                 int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
-
                 SetEnemy(enemy, _spawnPoints[spawnPointNumber].position);
             }
         }

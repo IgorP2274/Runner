@@ -10,24 +10,18 @@ public class PointsDisplay : MonoBehaviour
     private int _score = 0;
 
 
-    private void Start()
-    {
-        _ScoreDisplay.text = _score.ToString();
-    }
+    private void Start() =>
+        _ScoreDisplay.text = "Очки: " + _score.ToString();
 
-    private void OnEnable()
-    {
+    private void OnEnable()=>
         _destroyer.Died += OnDied;
-    }
 
-    private void OnDisable()
-    {
+    private void OnDisable() =>
         _destroyer.Died -= OnDied;
-    }
 
     private void OnDied()
     {
         _score += 1;
-        _ScoreDisplay.text = _score.ToString();
+        _ScoreDisplay.text = "Очки: " + _score.ToString();
     }
 }
