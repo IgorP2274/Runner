@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         _health -= damage;
         ChangeHealth?.Invoke(_health);
 
-        if (_health < 0) 
+        if (_health <= 0) 
             Die();
     }
 

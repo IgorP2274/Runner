@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 1176333046}
   _capacity: 10
-  _chancePercentHealRespawn: 0
+  _chancePercentHealRespawn: 10
   _enemy: {fileID: 1877432706682340360, guid: af50fbe3e8d17fe419bf9e3901bbf3a8, type: 3}
   _heal: {fileID: 1203158347240265186, guid: 1b45fb41eddc69d40a6f93be9632d39b, type: 3}
   _spawnDelay: 0.9
