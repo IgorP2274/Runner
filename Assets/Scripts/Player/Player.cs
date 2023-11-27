@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -27,11 +26,12 @@ public class Player : MonoBehaviour
 
     public void ApplayHeal(int heal)
     {
-        if (_health < _maxHealth)
-        {
-            _health += heal;
-            ChangeHealth?.Invoke(_health);
-        }
+        _health += heal;
+
+        if (_health > _maxHealth)
+            _health = _maxHealth;
+
+        ChangeHealth?.Invoke(_health);
     }
 
     private void Die() =>

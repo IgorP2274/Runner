@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Spawner : ObjectPull
 {
@@ -7,28 +8,16 @@ public class Spawner : ObjectPull
     [SerializeField] private float _spawnDelay;
     [SerializeField] private Transform[] _spawnPoints;
 
-    private float _passedTime = 0;
+    private WaitForSeconds _wait;
 
 
     private void Start() 
     {
         Initialize(_enemy);
         AddHeals(_heal);
-    }
+        _wait = new WaitForSeconds(_spawnDelay);
 
-    private void Update()
-    {
-        _passedTime += Time.deltaTime;
-
-        if (_passedTime >= _spawnDelay) 
-        { 
-            if (TryGetObject(out GameObject enemy)) 
-            {
-                _passedTime = 0;
-                int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
-                SetEnemy(enemy, _spawnPoints[spawnPointNumber].position);
-            }
-        }
+        StartCoroutine(Create());
     }
 
     private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
@@ -36,4 +25,19 @@ public class Spawner : ObjectPull
         enemy.SetActive(true);
         enemy.transform.position = spawnPoint;
     }
+
+    public IEnumerator Create()
+    {
+        while (true) 
+        {
+            if (TryGetObject(out GameObject enemy))
+            {
+                int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
+                SetEnemy(enemy, _spawnPoints[spawnPointNumber].position);
+            }
+
+            yield return _wait;
+        }
+    }
+
 }

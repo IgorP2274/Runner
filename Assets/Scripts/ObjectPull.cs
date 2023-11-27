@@ -6,9 +6,11 @@ public class ObjectPull : MonoBehaviour
 {
     [SerializeField] private GameObject _container;
     [SerializeField] private int _capacity;
+    [SerializeField] private float _chancePercentHealRespawn;
 
     private List<GameObject> _poolEnemies = new List<GameObject>();
     private List<GameObject> _poolHeals = new List<GameObject>();
+    private float _maxPersentChance = 100;
 
     protected void Initialize(GameObject prefab)
     {
@@ -32,7 +34,7 @@ public class ObjectPull : MonoBehaviour
 
     protected bool TryGetObject(out GameObject result) 
     {
-        if (Random.Range(1, 11) == 10)
+        if (Random.Range(0, _maxPersentChance) < _chancePercentHealRespawn)
             result = _poolHeals.FirstOrDefault(p => p.activeSelf == false);
         else 
             result = _poolEnemies.FirstOrDefault(p => p.activeSelf == false);

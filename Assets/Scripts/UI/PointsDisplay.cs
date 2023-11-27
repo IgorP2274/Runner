@@ -5,12 +5,12 @@ using UnityEngine;
 public class PointsDisplay : MonoBehaviour
 {
     [SerializeField] private Destroyer _destroyer;
-    [SerializeField] private TMP_Text _ScoreDisplay;
+    [SerializeField] private TMP_Text _scoreDisplay;
 
     private int _score = 0;
 
     private void Start() =>
-        _ScoreDisplay.text = "西觇: " + _score.ToString();
+        _scoreDisplay.text = "西觇: " + _score.ToString();
 
     private void OnEnable()=>
         _destroyer.Died += OnDied;
@@ -21,6 +21,6 @@ public class PointsDisplay : MonoBehaviour
     private void OnDied()
     {
         _score += 1;
-        _ScoreDisplay.text = "西觇: " + _score.ToString();
+        _scoreDisplay.text = "西觇: " + _score.ToString();
     }
 }
